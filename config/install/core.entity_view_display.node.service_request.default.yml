@@ -8,14 +8,17 @@ dependencies:
     - field.field.node.service_request.field_e_mail
     - field.field.node.service_request.field_geolocation
     - field.field.node.service_request.field_request_image
-    - field.field.node.service_request.field_status
+    - field.field.node.service_request.field_status_notes
+    - image.style.header
     - node.type.service_request
   enforced:
     module:
       - service_request
   module:
     - address
+    - entity_reference_revisions
     - geolocation
+    - image
     - text
     - user
 id: node.service_request.default
@@ -70,12 +73,13 @@ content:
       image_style: header
       image_link: ''
     third_party_settings: {  }
-  field_status:
-    type: entity_reference_label
-    weight: 4
-    label: visually_hidden
+  field_status_notes:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: above
     settings:
-      link: false
+      view_mode: default
+      link: ''
     third_party_settings: {  }
   links:
     weight: 0
